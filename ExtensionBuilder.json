@@ -1,0 +1,32 @@
+{
+    "modules": [],
+    "properties": {
+        "backendModules": [],
+        "description": "Erweiterung der tt_address Extension um deathday",
+        "emConf": {
+            "category": "plugin",
+            "custom_category": "",
+            "dependsOn": "typo3 => 9.5.0-9.5.99\n",
+            "disableLocalization": false,
+            "disableVersioning": false,
+            "skipGenerateDocumentationTemplate": false,
+            "sourceLanguage": "en,de",
+            "state": "alpha",
+            "targetVersion": "9.5.0-9.5.99",
+            "version": "1.0.0"
+        },
+        "extensionKey": "ext_ttaddress",
+        "name": "Erweiterung TT_Address Extension",
+        "originalExtensionKey": "",
+        "originalVendorName": "",
+        "persons": [],
+        "plugins": [],
+        "vendorName": "ExtTtaddres"
+    },
+    "wires": [],
+    "log": {
+        "last_modified": "2019-03-19 03:13",
+        "extension_builder_version": "9.10.0",
+        "be_user": " (1)"
+    }
+}

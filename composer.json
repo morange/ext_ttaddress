@@ -1,0 +1,24 @@
+{
+    "name": "extttaddres/ext-ttaddress",
+    "type": "typo3-cms-extension",
+    "description": "Erweiterung der tt_address Extension um deathday",
+    "authors": [],
+    "version": "1.0.0",
+    "require": {
+        "typo3/cms-core": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "ExtTtaddres\\ExtTtaddress\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ExtTtaddres\\ExtTtaddress\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "ext_ttaddress": "self.version",
+        "typo3-ter/ext-ttaddress": "self.version"
+    }
+}

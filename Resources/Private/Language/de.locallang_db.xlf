@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2018-03-29T11:02:12Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+			<trans-unit id="tt_address_palette.tt_mhaddressextend_fields">
+				<source>mh address_extend Fields</source>
+				<target>mh_address_extend Fields</target>
+			</trans-unit>
+			<trans-unit id="tt_address.tx_deathday">
+				<source>Deathday</source>
+				<target>Todestag</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
