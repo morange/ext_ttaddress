@@ -6,8 +6,11 @@ $temporaryColumn = [
         'exclude' => false,
         'label' => 'Todestag',
         'config' => [
-            'type' => 'check',
-            'default' => 0
+            'default' => 0,
+            'type' => 'input',
+            'renderType' => 'inputDateTime',
+            'size' => 12,
+            'eval' => 'datetime,int',
         ]
     ]
 ];
