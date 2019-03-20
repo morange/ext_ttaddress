@@ -1,24 +1,18 @@
 <?php
 defined('TYPO3_MODE') or die();
 
-$temporaryColumn = array(
-        'tx_deathday' => array (
-                'exclude' => 0,
-                'label' => 'Todestag',
-                'config' => array (
-                        'type' => 'check',
-                )
-        )
-);
+$temporaryColumn = [
+    'tx_deathday' => [
+        'exclude' => false,
+        'label' => 'Todestag',
+        'config' => [
+            'type' => 'check',
+            'default' => 0
+        ]
+    ]
+];
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
-        'tt_address',
-        $temporaryColumn
-);
-// add fields to new palette
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
     'tt_address',
-    'generally',
-    'tx_deathday',
-    'after:name'
-
+    $temporaryColumn
 );
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('tt_address', 'tx_deathday', '', 'after:birthday');
