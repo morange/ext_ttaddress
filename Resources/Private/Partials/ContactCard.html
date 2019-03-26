@@ -1,0 +1,33 @@
+<div class="large-6 medium-6 small-12 columns vcard" itemscope itemtype="http://schema.org/Person">
+    <h5>{address.title} {address.firstName} {address.middleName} {address.lastName}</h5>
+    <f:if condition="{address.position}">
+        <p class="position">{address.position}</p>
+    </f:if>
+
+    <f:if condition="{address.phone}">
+        <ul class="list-inline">
+          <li>
+              <label for="telephone" class="large-3 medium-3 small-3">{f:translate(key:'label.telephone')}:</label>
+              <a class="large-9 medium-9 small-9 link" href="tel:{address.phone}">
+                  <span itemprop="telephone">{address.phone}</span>
+              </a>
+          </li>
+        </ul>
+    </f:if>
+
+    <f:if condition="{address.email}">
+        <ul class="list-inline">
+            <li>
+                <label for="email" class="large-3 medium-3 small-3">{f:translate(key:'label.email')}:</label>
+                <f:link.email email="{address.email}" class="large-9 medium-9 small-9 link"><span itemprop="email">{f:translate(key:'email')}</span></f:link.email>
+            </li>
+        </ul>
+    </f:if>
+
+    <f:if condition="{settings.singlePid}">
+        <f:link.action action="show" arguments="{address : address}"
+                       title="{address.firstTitle} {address.firstName} {address.middleName} {address.lastName}"
+                       pageUid="{settings.singlePid}" class="large-12 medium-12 small-12 link text-right">{f:translate(key:'more')}
+        </f:link.action>
+    </f:if>
+</div>

@@ -1,0 +1,97 @@
+<div class="large-12 medium-12 small-12 columns vcard worker boxshadow" itemscope itemtype="http://schema.org/Person">
+    <f:if condition="{address.image}">
+      <f:then>
+          <div class="large-4 medium-4 small-4 columns addressImage">
+              <f:link.action class="rounded" action="show" arguments="{address : address}"
+                             title="{address.firstTitle} {address.firstName} {address.middleName} {address.lastName}"
+                             pageUid="{settings.singlePid}">
+                  <f:if condition="{address.image}">
+                      <f:media file="{address.firstImage}" width="400" class="img-fluid img-thumbnail"
+                               alt="{img.originalResource.alt}"
+                               title="{address.title} {address.firstName} {address.middleName} {address.lastName}"/>
+                  </f:if>
+              </f:link.action>
+          </div>
+
+            <div class="large-8 medium-8 small-8 columns">
+                  <h5>{address.title} {address.firstName} {address.middleName} {address.lastName}</h5>
+                <f:if condition="{address.position}">
+                    <p class="position">{address.position}</p>
+                </f:if>
+
+                  <f:if condition="{address.phone}">
+                      <ul class="list-inline">
+                        <li>
+                            <label for="telephone" class="large-3 medium-3 small-3">{f:translate(key:'label.telephone')}:</label>
+                            <a class="large-9 medium-9 small-9 link" href="tel:{address.phone}">
+                                <span itemprop="telephone">{address.phone}</span>
+                            </a>
+                        </li>
+                      </ul>
+                  </f:if>
+
+                  <f:if condition="{address.email}">
+                      <ul class="list-inline">
+                          <li>
+                            <f:link.email email="{address.email}" class="large-12 medium-12 small-12 link"><span itemprop="email">{f:translate(key:'email')}</span></f:link.email>
+                          </li>
+                      </ul>
+                  </f:if>
+
+                <f:if condition="{settings.singlePid}">
+                    <f:then>
+                        <f:link.action action="show" arguments="{address : address}"
+                                       title="{address.firstTitle} {address.firstName} {address.middleName} {address.lastName}"
+                                       pageUid="{settings.singlePid}" class="large-12 medium-12 small-12 link">{f:translate(key:'biography')}
+                        </f:link.action>
+                    </f:then>
+                    <f:else>
+                      <p class="abstandNullBottom">&nbsp;</p>
+                    </f:else>
+                </f:if>
+            </div>
+
+          </f:then>
+          <f:else>
+
+            <div class="large-12 medium-12 small-12 columns">
+                <h5>{address.title} {address.firstName} {address.middleName} {address.lastName}</h5>
+                <f:if condition="{address.position}">
+                    <p class="position">{address.position}</p>
+                </f:if>
+
+                <f:if condition="{address.phone}">
+                    <ul class="list-inline">
+                      <li>
+                          <label for="telephone" class="large-3 medium-3 small-3">{f:translate(key:'label.telephone')}:</label>
+                          <a class="large-9 medium-9 small-9 link" href="tel:{address.phone}">
+                              <span itemprop="telephone">{address.phone}</span>
+                          </a>
+                      </li>
+                    </ul>
+                </f:if>
+
+                <f:if condition="{address.email}">
+                    <ul class="list-inline">
+                        <li>
+                            <f:link.email email="{address.email}" class="large-12 medium-12 small-12 link"><span itemprop="email">{f:translate(key:'email')}</span></f:link.email>
+                        </li>
+                    </ul>
+                </f:if>
+
+                <f:if condition="{settings.singlePid}">
+                    <f:then>
+                        <f:link.action action="show" arguments="{address : address}"
+                                       title="{address.firstTitle} {address.firstName} {address.middleName} {address.lastName}"
+                                       pageUid="{settings.singlePid}" class="large-12 medium-12 small-12 link">{f:translate(key:'biography')}
+                        </f:link.action>
+                    </f:then>
+                    <f:else>
+                      <p class="abstandNullBottom">&nbsp;</p>
+                    </f:else>
+                </f:if>
+              </div>
+          </f:else>
+    </f:if>
+
+</div>

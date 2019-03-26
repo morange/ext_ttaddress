@@ -1,0 +1,26 @@
+<li itemscope itemtype="http://schema.org/Person">
+  <f:link.action class="rounded" action="show" arguments="{address : address}"
+                 title="{address.firstTitle} {address.firstName} {address.middleName} {address.lastName}"
+                 pageUid="{settings.singlePid}">
+        <h6 class="noborder">{address.title} {address.firstName} {address.middleName} {address.lastName},</h6>
+    </f:link.action>
+
+    <f:if condition="{address.position}">
+        <h6 class="position noborder">
+          {address.position}
+
+          <f:if condition="{settings.singlePid}">
+              <f:then>
+                  <f:link.action action="show" arguments="{address : address}"
+                                 title="{address.firstTitle} {address.firstName} {address.middleName} {address.lastName}"
+                                 pageUid="{settings.singlePid}" class="float-right link">
+                  </f:link.action>
+              </f:then>
+              <f:else>
+                <p class="abstandNullBottom">&nbsp;</p>
+              </f:else>
+          </f:if>
+
+        </h6>
+    </f:if>
+</li>

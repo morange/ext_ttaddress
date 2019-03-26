@@ -1,0 +1,36 @@
+
+plugin.tx_ttaddress {
+    view {
+        templateRootPaths {
+            0 = EXT:ext_ttaddress/Resources/Private/Templates/
+            1 = {$plugin.tx_ttaddress.view.templateRootPath}
+        }
+
+        partialRootPaths {
+            0 = EXT:ext_ttaddress/Resources/Private/Partials/
+            1 = {$plugin.tx_ttaddress.view.partialRootPath}
+        }
+
+        layoutRootPaths {
+            0 = EXT:ext_ttaddress/Resources/Private/Layouts/
+            1 = {$plugin.tx_ttaddress.view.layoutRootPath}
+        }
+    }
+
+    # ENDE VIEW
+    _LOCAL_LANG {
+        de {
+          email = Schreiben Sie mir
+          more = weiterlesen
+          biography = Biografie
+          contactperson = Ansprechpartner
+        }
+        en {
+          email = Write me
+          more = read more
+          biography = Biography
+          contactperson = Contact Person
+        }
+    }
+    # ENDE _LOCAL_LANG
+}
