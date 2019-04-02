@@ -73,7 +73,7 @@
     </div>
 </f:section>
 
-<f:section name="displayMode_workers">
+<f:section name="displayMode_worker">
     <div class="row">
         <!--TYPO3SEARCH_begin-->
         <f:if condition="{settings.hidePagination}">
@@ -134,6 +134,29 @@
                 <f:widget.paginate objects="{addresses}" as="paginatedAdresses" configuration="{settings.paginate}">
                     <f:for each="{paginatedAdresses}" as="address" iteration="iterator">
                         <f:render partial="ShortContact" arguments="{_all}"/>
+                    </f:for>
+                </f:widget.paginate>
+            </f:else>
+        </f:if>
+        <!--TYPO3SEARCH_end-->
+    </div>
+</f:section>
+
+
+<!-- MissionarsList -->
+<f:section name="displayMode_missionarsList">
+    <div class="row">
+        <!--TYPO3SEARCH_begin-->
+        <f:if condition="{settings.hidePagination}">
+            <f:then>
+                <f:for each="{addresses}" as="address" iteration="iterator">
+                    <f:render partial="WorkersCard" arguments="{_all}"/>
+                </f:for>
+            </f:then>
+            <f:else>
+                <f:widget.paginate objects="{addresses}" as="paginatedAdresses" configuration="{settings.paginate}">
+                    <f:for each="{paginatedAdresses}" as="address" iteration="iterator">
+                        <f:render partial="WorkersCard" arguments="{_all}"/>
                     </f:for>
                 </f:widget.paginate>
             </f:else>

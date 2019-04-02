@@ -1,15 +1,12 @@
-<div class="vcard tt_address_detail" itemscope itemtype="http://schema.org/Person">
-    <h4 itemprop="name">#{f:if(condition:address.title,then: '{address.title} ')}{address.firstName}
-        {f:if(condition:address.middleName,then: '{address.middleName} ')} {address.lastName}</h4>
-    <f:render section="position" partial="Address" arguments="{_all}"/>
+<div class="tt_address_detail" itemscope itemtype="http://schema.org/Person">
 
     <f:if condition="{address.image}">
         <f:then>
             <div class="row">
-                <div class="col-md-3">
-                    <figure class="figure">
+                <div class="large-3 medium-3 small-3 columns text-center">
+                    <figure class="figure rounded">
                         <f:image image="{address.firstImage}" width="600"
-                                 class="figure-img img-fluid img-thumbnail rounded"
+                                 class="figure-img img-fluid img-thumbnail"
                                  alt="{img.originalResource.alt}"
                                  title="{img.originalResource.title}"
                                  additionalAttributes="{itemprop:'image'}"/>
@@ -20,8 +17,11 @@
                             </figcaption>
                         </f:if>
                     </figure>
-                </div>
-                <div class="col-md-9">
+                  </div>
+              </div>
+
+              <div class="row">
+                <div class="large-12 medium-12 small-12 columns">
                     <f:render section="content" arguments="{_all}"/>
                 </div>
             </div>
@@ -33,6 +33,11 @@
 </div>
 
 <f:section name="content">
+
+    <h4 class="text-center" itemprop="name">{f:if(condition:address.title,then: '{address.title} ')}{address.firstName}
+        {f:if(condition:address.middleName,then: '{address.middleName} ')} {address.lastName}</h4>
+    <f:render section="positionDetail" partial="Address" arguments="{_all}"/>
+
     <f:if condition="{address.description}">
         <div class="description" itemprop="description">
             {address.description -> f:format.nl2br()}
@@ -65,8 +70,8 @@
             <div class="row">
                 <f:for each="{address.image}" as="img" iteration="iterator">
                     <f:if condition="{iterator.cycle}>1">
-                        <div class="col-md-4">
-                            <figure class="figure">
+                        <div class="large-3 medium-3 small-3 columns text-center">
+                            <figure class="rounded figure">
                                 <a href="{f:uri.image(src:img.originalResource.publicUrl, maxWidth:1000)}"
                                    class="media-object {settings.detail.imageClass}"
                                    rel="images_tt_address_{address.uid}"
