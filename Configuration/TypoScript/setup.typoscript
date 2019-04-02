@@ -20,15 +20,15 @@ plugin.tx_ttaddress {
     # ENDE VIEW
     _LOCAL_LANG {
         de {
-          email = Schreiben Sie mir
+          email = E-Mail:
           more = weiterlesen
-          biography = Biografie
+          biography = Biografie:
           contactperson = Ansprechpartner
         }
         en {
-          email = Write me
+          email = E-Mail:
           more = read more
-          biography = Biography
+          biography = Biography:
           contactperson = Contact Person
         }
     }
