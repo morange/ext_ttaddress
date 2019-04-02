@@ -10,7 +10,7 @@ $temporaryColumn = [
             'type' => 'input',
             'renderType' => 'inputDateTime',
             'size' => 12,
-            'eval' => 'datetime,int',
+            'eval' => 'date,int',
         ]
     ]
 ];
