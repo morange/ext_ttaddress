@@ -4,17 +4,23 @@ TCEFORM {
     pi_flexform {
 
       # tt_address
-      ttaddress_listview.sDISPLAY.settings\.displayMode {
-        #removeItems = list, single
-        addItems {
-          mitarbeiterContact = Mitarbeiter Kontakt
-          worker = Miitarbeiter (1 Mitarbeiter)
-          workers = mehrere Miitarbeiter (2 Spalten)
-          missionarList = Missionar
-          contactList = gekürzte Kontaktliste
-          shortContact = Kontakt Sidebar
+      ttaddress_listview.sDISPLAY {
+        settings\.displayMode {
+          #removeItems = list, single
+          addItems {
+            mitarbeiterContact = Mitarbeiter Kontakt
+            worker = Miitarbeiter (1 Mitarbeiter)
+            workers = mehrere Miitarbeiter (2 Spalten)
+            missionarsList = Übersicht Missionare
+            contactList = gekürzte Kontaktliste
+            shortContact = Kontakt Sidebar
+          }
         }
       }
     }
     # end tt_address
+
+    tt_address {
+      facebook.disabled = 1
+    }
 }
