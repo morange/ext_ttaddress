@@ -19,12 +19,18 @@
     </f:if>
 </f:section>
 
+<f:section name="positionDetail">
+    <f:if condition="{address.position}">
+        <p class="jobTitle text-center" itemprop="jobTitle"><em>{address.position}</em></p>
+    </f:if>
+</f:section>
+
 <f:section name="contact">
-    <ul class="list-unstyled">
+    <ul class="list-contactinformation">
         <f:if condition="{address.phone}">
             <li>
-                <i class="fas fa-phone"></i>
-                {f:translate(key:'label.telephone')}: <a href="tel:{address.phone->ttaddr:removeSpaces()}">
+                <label>{f:translate(key:'label.telephone')}: </label>
+                <a href="tel:{address.phone->ttaddr:removeSpaces()}">
                 <span itemprop="telephone">{address.phone}</span>
             </a>
             </li>
@@ -32,8 +38,8 @@
 
         <f:if condition="{address.mobile}">
             <li>
-                <i class="fas fa-mobile-alt"></i>
-                {f:translate(key:'label.mobile')}: <a href="tel:{address.mobile->ttaddr:removeSpaces()}">
+                <label>{f:translate(key:'label.mobile')}:</label>
+                <a href="tel:{address.mobile->ttaddr:removeSpaces()}">
                 <span itemprop="telephone">{address.mobile}</span>
             </a>
             </li>
@@ -41,15 +47,14 @@
 
         <f:if condition="{address.fax}">
             <li>
-                <i class="fas fa-fax"></i>
-                {f:translate(key:'label.fax')}: <span itemprop="faxNumber">{address.fax}</span>
+              <label>{f:translate(key:'label.fax')}:</label>
+                <span itemprop="faxNumber">{address.fax}</span>
             </li>
         </f:if>
 
         <f:if condition="{address.email}">
             <li>
-                <i class="fas fa-envelope"></i>
-                {f:translate(key:'label.email')}:
+                <label>{f:translate(key:'label.email')}:</label>
                 <f:link.email email="{address.email}"><span itemprop="email">{address.email}</span></f:link.email>
             </li>
         </f:if>
@@ -57,23 +62,22 @@
         <f:if condition="{address.www}">
             <meta itemprop="url" content="{f:uri.typolink(parameter:address.www)}"/>
             <li>
-                <i class="fas fa-link"></i>
-                {f:translate(key:'label.www')}:
+                <label>{f:translate(key:'label.www')}:</label>
                 <f:link.typolink parameter="{address.www}">{address.www}</f:link.typolink>
             </li>
         </f:if>
         <f:if condition="{address.birthday}">
             <meta itemprop="birthDate" content="{address.birthday -> f:format.date(format:'%Y-%m-%d')}">
             <li>
-                <i class="fas fa-birthday-cake"></i>
-                {f:translate(key:'label.birthday')}: {address.birthday -> f:format.date(format:'%d.%m.%Y')}
+              <label>{f:translate(key:'label.birthday')}:</label>
+                {address.birthday -> f:format.date(format:'%d.%m.%Y')}
             </li>
         </f:if>
         <f:if condition="{address.deathday}">
             <meta itemprop="deathDate" content="{address.deathday -> f:format.date(format:'%Y-%m-%d')}">
             <li>
-                <i class="fas fa-birthday-cake"></i>
-                {f:translate(key:'label.deathday')}: {address.deathday -> f:format.date(format:'%d.%m.%Y')}
+              <label>{f:translate(key:'label.deathday')}:</label>
+                {address.deathday -> f:format.date(format:'%d.%m.%Y')}
             </li>
         </f:if>
     </ul>
