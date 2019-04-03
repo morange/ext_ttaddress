@@ -22,12 +22,14 @@ plugin.tx_ttaddress {
         de {
           email = E-Mail:
           more = weiterlesen
+          back = zurück
           biography = Biografie:
           contactperson = Ansprechpartner
         }
         en {
           email = E-Mail:
           more = read more
+          back = back
           biography = Biography:
           contactperson = Contact Person
         }
