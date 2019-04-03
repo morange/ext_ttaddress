@@ -1,11 +1,28 @@
 TCEFORM {
-  tt_content {
 
-    pi_flexform {
+    # tt_address
+    tt_address {
+      # tab 1
+      leafletmapicon.disabled = 1
+      mapgeocode.disabled = 1
+      #tab 3
+      www.disabled = 1
+      mobile.disabled = 1
+      building.disabled = 1
+      room.disabled = 1
+      skype.disabled = 1
+      twitter.disabled = 1
+      facebook.disabled = 1
+      linkedin.disabled = 1
+    }
+    # end tt_address
 
-      # tt_address
-      ttaddress_listview.sDISPLAY {
-        settings\.displayMode {
+    tt_content {
+
+      pi_flexform {
+
+        # tt_address
+        ttaddress_listview.sDISPLAY.settings\.displayMode {
           #removeItems = list, single
           addItems {
             mitarbeiterContact = Mitarbeiter Kontakt
@@ -16,11 +33,21 @@ TCEFORM {
             shortContact = Kontakt Sidebar
           }
         }
-      }
-    }
-    # end tt_address
 
-    tt_address {
-      facebook.disabled = 1
+
+      }
+
+      space_before_class {
+        addItems {
+          abstandShortContactTop = Abstand nach oben für ShortContact
+        }
+      }
+
+      space_after_class {
+        addItems {
+          abstandShortContactBottom = Abstand nach unten für ShortContact
+        }
+      }
+
     }
 }
