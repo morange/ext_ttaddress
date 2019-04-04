@@ -43,7 +43,7 @@
 
     <f:if condition="{address.description}">
         <div class="description" itemprop="description">
-            <p>{address.description -> f:format.nl2br()}</p>
+            {address.description -> f:format.raw()}
         </div>
     </f:if>
 
