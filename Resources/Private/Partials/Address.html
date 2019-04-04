@@ -28,96 +28,44 @@
 <f:section name="contact">
     <ul class="list-contactinformation">
         <f:if condition="{address.phone}">
-            <li>
-                <label>{f:translate(key:'label.telephone')}: </label>
-                <a href="tel:{address.phone->ttaddr:removeSpaces()}">
+            <li class="row">
+                <label class="large-1">{f:translate(key:'label.telephone')}: </label>
+                <a class="large-11" href="tel:{address.phone->ttaddr:removeSpaces()}">
                 <span itemprop="telephone">{address.phone}</span>
             </a>
             </li>
         </f:if>
 
-        <f:if condition="{address.mobile}">
-            <li>
-                <label>{f:translate(key:'label.mobile')}:</label>
-                <a href="tel:{address.mobile->ttaddr:removeSpaces()}">
-                <span itemprop="telephone">{address.mobile}</span>
-            </a>
-            </li>
-        </f:if>
-
-        <f:if condition="{address.fax}">
-            <li>
-              <label>{f:translate(key:'label.fax')}:</label>
-                <span itemprop="faxNumber">{address.fax}</span>
-            </li>
-        </f:if>
-
         <f:if condition="{address.email}">
-            <li>
-                <label>{f:translate(key:'label.email')}:</label>
-                <f:link.email email="{address.email}"><span itemprop="email">{address.email}</span></f:link.email>
+            <li class="row">
+                <label class="large-1">{f:translate(key:'label.email')}:</label>
+                <f:link.email class="large-11" email="{address.email}"><span itemprop="email">{address.email}</span></f:link.email>
             </li>
         </f:if>
 
         <f:if condition="{address.www}">
             <meta itemprop="url" content="{f:uri.typolink(parameter:address.www)}"/>
-            <li>
-                <label>{f:translate(key:'label.www')}:</label>
-                <f:link.typolink parameter="{address.www}">{address.www}</f:link.typolink>
-            </li>
-        </f:if>
-        <f:if condition="{address.birthday}">
-            <meta itemprop="birthDate" content="{address.birthday -> f:format.date(format:'%Y-%m-%d')}">
-            <li>
-              <label>{f:translate(key:'label.birthday')}:</label>
-                {address.birthday -> f:format.date(format:'%d.%m.%Y')}
-            </li>
-        </f:if>
-        <f:if condition="{address.deathday}">
-            <meta itemprop="deathDate" content="{address.deathday -> f:format.date(format:'%Y-%m-%d')}">
-            <li>
-              <label>{f:translate(key:'label.deathday')}:</label>
-                {address.deathday -> f:format.date(format:'%d.%m.%Y')}
+            <li class="row">
+                <label class="large-1">{f:translate(key:'label.www')}:</label>
+                <f:link.typolink class="large-11" parameter="{address.www}">{address.www}</f:link.typolink>
             </li>
         </f:if>
     </ul>
 </f:section>
 
-<f:section name="social">
-    <f:if condition="{address.skype} || {address.twitter} || {address.facebook} || {address.linkedin}">
-        <ul class="list-inline">
-            <f:if condition="{address.skype}">
-                <li class="list-inline-item">
-                    <i class="fab fa-skype" aria-hidden title="{f:translate(key:'label.skype')}"></i>
-                    <span class="sr-only">{f:translate(key:'label.skype')}:</span>
-                    <a href="skype:{address.skype}?call">{address.skype}</a>
-                    <meta itemprop="sameAs" content="skype:{address.skype}?call"/>
-                </li>
-            </f:if>
-            <f:if condition="{address.twitter}">
-                <li class="list-inline-item">
-                    <i class="fab fa-twitter" aria-hidden title="{f:translate(key:'label.twitter')}"></i>
-                    <span class="sr-only">{f:translate(key:'label.twitter')}:</span>
-                    <a href="https://twitter.com/{address.twitter}" target="_blank">{address.twitter}</a>
-                    <meta itemprop="sameAs" content="https://twitter.com/{address.twitter}"/>
-                </li>
-            </f:if>
-            <f:if condition="{address.facebook}">
-                <li class="list-inline-item">
-                    <i class="fab fa-facebook" aria-hidden title="{f:translate(key:'label.facebook')}"></i>
-                    <span class="sr-only">{f:translate(key:'label.facebook')}:</span>
-                    <a href="https://www.facebook.com/{address.facebook}" target="_blank">{address.facebook}</a>
-                    <meta itemprop="sameAs" content="https://www.facebook.com/{address.facebook}"/>
-                </li>
-            </f:if>
-            <f:if condition="{address.linkedin}">
-                <li class="list-inline-item">
-                    <i class="fab fa-linkedin" aria-hidden title="{f:translate(key:'label.linkedin')}"></i>
-                    <span class="sr-only">{f:translate(key:'label.linkedin')}:</span>
-                    <a href="https://www.linkedin.com/in/{address.linkedin}" target="_blank">{address.linkedin}</a>
-                    <meta itemprop="sameAs" content="https://www.linkedin.com/in/{address.linkedin}"/>
-                </li>
-            </f:if>
-        </ul>
+
+<f:section name="specialdays">
+  <h6 class="text-center">
+
+    <f:if condition="{address.birthday}">
+        <meta itemprop="birthDate" content="{address.birthday -> f:format.date(format:'%Y')}">
+        {address.birthday -> f:format.date(format:'%Y')}
     </f:if>
+    <f:if condition="{address.birthday} && {address.txDeathday}"> -</f:if>
+    <f:if condition="{address.txDeathday}">
+        <meta itemprop="deathDate" content="{address.txDeathday -> f:format.date(format:'%Y')}">
+        {address.txDeathday -> f:format.date(format:'%Y')}
+    </f:if>
+
+  </h6>
 </f:section>

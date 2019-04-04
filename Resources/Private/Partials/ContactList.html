@@ -1,13 +1,17 @@
-<li itemscope itemtype="http://schema.org/Person">
-  <f:link.action class="rounded" action="show" arguments="{address : address}"
-                 title="{address.firstTitle} {address.firstName} {address.middleName} {address.lastName}"
-                 pageUid="{settings.singlePid}">
-        <h6 class="noborder">{address.title} {address.firstName} {address.middleName} {address.lastName},</h6>
-    </f:link.action>
-
-    <f:if condition="{address.position}">
-        <h6 class="position noborder">
-          {address.position}
-        </h6>
-    </f:if>
-</li>
+<div class="large-12 medium-12 small-12 columns contact" itemscope itemtype="http://schema.org/Person">
+  <h5 class="noborder normal shortcontact">
+    {f:translate(key:'contactperson')}:
+      <f:if condition="{settings.singlePid}">
+          <f:then>
+              <f:link.action action="show" arguments="{address : address}"
+                             title="{address.firstTitle} {address.firstName} {address.middleName} {address.lastName}"
+                             pageUid="{settings.singlePid}" class="link">
+                                   {address.title}
+                                   {address.firstName}
+                                   {address.middleName}
+                                   {address.lastName}<f:if condition="{address.position}">, {address.position}</f:if>
+              </f:link.action>
+          </f:then>
+      </f:if>
+    </h5>
+</div>

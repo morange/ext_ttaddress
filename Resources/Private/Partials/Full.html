@@ -36,34 +36,20 @@
 
     <h4 class="text-center" itemprop="name">{f:if(condition:address.title,then: '{address.title} ')}{address.firstName}
         {f:if(condition:address.middleName,then: '{address.middleName} ')} {address.lastName}</h4>
+
+    <f:render section="specialdays" partial="Address" arguments="{_all}"/>
+
     <f:render section="positionDetail" partial="Address" arguments="{_all}"/>
 
     <f:if condition="{address.description}">
         <div class="description" itemprop="description">
-            {address.description -> f:format.nl2br()}
+            <p>{address.description -> f:format.nl2br()}</p>
         </div>
     </f:if>
 
     <f:render section="address" partial="Address" arguments="{_all}"/>
 
-    <f:if condition="{address.building} || {address.room}">
-        <ul class="list-inline">
-            <f:if condition="{address.building}">
-                <li class="list-inline-item">
-                    {f:translate(key:'label.building')}: {address.building}
-                </li>
-            </f:if>
-
-            <f:if condition="{address.room}">
-                <li class="list-inline-item">
-                    {f:translate(key:'label.room')}: {address.room}
-                </li>
-            </f:if>
-        </ul>
-    </f:if>
-
     <f:render section="contact" partial="Address" arguments="{_all}"/>
-    <f:render section="social" partial="Address" arguments="{_all}"/>
 
     <f:if condition="{address.image -> f:count() > 1}">
         <div class="address-image-rows">
