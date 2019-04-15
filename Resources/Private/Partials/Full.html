@@ -4,7 +4,7 @@
         <f:then>
             <div class="row">
                 <div class="large-3 medium-3 small-3 columns text-center">
-                    <figure class="figure rounded">
+                    <figure class="figure square">
                         <f:image image="{address.firstImage}" width="600"
                                  class="figure-img img-fluid img-thumbnail"
                                  alt="{img.originalResource.alt}"
@@ -20,22 +20,19 @@
                   </div>
               </div>
 
-              <div class="row">
-                <div class="large-12 medium-12 small-12 columns">
-                    <f:render section="content" arguments="{_all}"/>
-                </div>
-            </div>
         </f:then>
-        <f:else>
-            <f:render section="content" arguments="{_all}"/>
-        </f:else>
     </f:if>
+    <div class="row">
+      <div class="large-12 medium-12 small-12 columns">
+          <f:render section="content" arguments="{_all}"/>
+      </div>
+  </div>
 </div>
 
 <f:section name="content">
 
-    <h4 class="text-center" itemprop="name">{f:if(condition:address.title,then: '{address.title} ')}{address.firstName}
-        {f:if(condition:address.middleName,then: '{address.middleName} ')} {address.lastName}</h4>
+    <h2 class="text-center" itemprop="name">{f:if(condition:address.title,then: '{address.title} ')}{address.firstName}
+        {f:if(condition:address.middleName,then: '{address.middleName} ')} {address.lastName}</h2>
 
     <f:render section="specialdays" partial="Address" arguments="{_all}"/>
 
@@ -51,36 +48,5 @@
 
     <f:render section="contact" partial="Address" arguments="{_all}"/>
 
-    <f:if condition="{address.image -> f:count() > 1}">
-        <div class="address-image-rows">
-            <div class="row">
-                <f:for each="{address.image}" as="img" iteration="iterator">
-                    <f:if condition="{iterator.cycle}>1">
-                        <div class="large-3 medium-3 small-3 columns text-center">
-                            <figure class="rounded figure">
-                                <a href="{f:uri.image(src:img.originalResource.publicUrl, maxWidth:1000)}"
-                                   class="media-object {settings.detail.imageClass}"
-                                   rel="images_tt_address_{address.uid}"
-                                   alt="{img.originalResource.alt}"
-                                   title="{img.originalResource.title}"
-                                   target="_blank">
-                                    <f:image image="{img}" width="400"
-                                             alt="{img.originalResource.alt}"
-                                             title="{img.originalResource.title}"
-                                             class="figure-img img-fluid img-thumbnail rounded"
-                                             additionalAttributes="{itemprop:'image'}"/>
-                                </a>
-                                <f:if condition="{img.originalResource.description}">
-                                    <figcaption class="figure-caption">
-                                        {img.originalResource.description -> f:format.nl2br()}
-                                    </figcaption>
-                                </f:if>
-                            </figure>
-                        </div>
-                    </f:if>
-                </f:for>
-            </div>
-        </div>
-    </f:if>
 
 </f:section>

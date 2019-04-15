@@ -55,7 +55,7 @@
 
 
 <f:section name="specialdays">
-  <h6 class="text-center">
+  <h4 class="text-center specialdays">
 
     <f:if condition="{address.birthday}">
         <meta itemprop="birthDate" content="{address.birthday -> f:format.date(format:'%Y')}">
@@ -67,5 +67,5 @@
         {address.txDeathday -> f:format.date(format:'%Y')}
     </f:if>
 
-  </h6>
+  </h4>
 </f:section>
